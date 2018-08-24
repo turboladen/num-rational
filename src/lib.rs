@@ -365,6 +365,27 @@ where
     }
 }
 
+macro_rules! impl_from_primitive_for_bigrational {
+    ($primitive:ident) => {
+        impl From<$primitive> for BigRational {
+            fn from(x: $primitive) -> BigRational {
+                let bi = BigInt::from(x);
+
+                Ratio::from_integer(bi)
+            }
+        }
+    };
+}
+
+impl_from_primitive_for_bigrational!(i8);
+impl_from_primitive_for_bigrational!(u8);
+impl_from_primitive_for_bigrational!(i16);
+impl_from_primitive_for_bigrational!(u16);
+impl_from_primitive_for_bigrational!(i32);
+impl_from_primitive_for_bigrational!(u32);
+impl_from_primitive_for_bigrational!(i64);
+impl_from_primitive_for_bigrational!(u64);
+
 // Comparisons
 
 // Mathematically, comparing a/b and c/d is the same as comparing a*d and b*c, but it's very easy
