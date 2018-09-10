@@ -365,6 +365,7 @@ where
     }
 }
 
+#[cfg(feature = "bigint")]
 macro_rules! impl_from_primitive_for_bigrational {
     ($primitive:ident) => {
         impl From<$primitive> for BigRational {
@@ -377,13 +378,21 @@ macro_rules! impl_from_primitive_for_bigrational {
     };
 }
 
+#[cfg(feature = "bigint")]
 impl_from_primitive_for_bigrational!(i8);
+#[cfg(feature = "bigint")]
 impl_from_primitive_for_bigrational!(u8);
+#[cfg(feature = "bigint")]
 impl_from_primitive_for_bigrational!(i16);
+#[cfg(feature = "bigint")]
 impl_from_primitive_for_bigrational!(u16);
+#[cfg(feature = "bigint")]
 impl_from_primitive_for_bigrational!(i32);
+#[cfg(feature = "bigint")]
 impl_from_primitive_for_bigrational!(u32);
+#[cfg(feature = "bigint")]
 impl_from_primitive_for_bigrational!(i64);
+#[cfg(feature = "bigint")]
 impl_from_primitive_for_bigrational!(u64);
 
 // Comparisons
